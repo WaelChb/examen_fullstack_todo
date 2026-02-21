@@ -224,7 +224,8 @@ function App() {
           className="danger"
           style={{ marginBottom: 12, fontSize: 12 }}
           onClick={() => {
-            throw new Error("Test Sentry error from React frontend!");
+            Sentry.captureException(new Error("Test Sentry error from React frontend!"));
+            alert("Erreur de test envoyée à Sentry !");
           }}
         >
           Test Sentry
